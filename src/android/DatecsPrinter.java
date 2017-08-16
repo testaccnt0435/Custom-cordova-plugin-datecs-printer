@@ -71,6 +71,12 @@ public class DatecsPrinter extends CordovaPlugin {
 				break;
 			case printText:
 				String text = args.getString(0);
+				byte[] rf1 = new byte[3];
+				rf1[0] = 0x1B;
+				rf1[1] = 0x4B;
+				rf1[2] = 0x06;
+				String s1 = new String(rf1);
+				text =s1 + text;
 				String charset = args.getString(1);
 				printer.printTaggedText(text, charset);
 				break;
